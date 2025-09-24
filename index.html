@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Linear Regression Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-glow: #00aaff;
+            --secondary-glow: #aa00ff;
+            --dark-bg: #0d0f1a;
+            --text-color: #e0e0e0;
+            --card-bg: rgba(22, 25, 41, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--secondary-glow);
+            }
+            to {
+                text-shadow: 0 0 20px var(--primary-glow), 0 0 30px var(--secondary-glow);
+            }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-button {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px var(--primary-glow), 0 0 25px var(--secondary-glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--primary-glow), 0 0 40px var(--secondary-glow);
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 170, 255, 0.3);
+            border-radius: 15px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-glow);
+        }
+
+        .demo-section {
+            text-align: center;
+        }
+
+        .demo-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 170, 255, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(0, 170, 255, 0.2);
+        }
+
+        footer a {
+            color: var(--primary-glow);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--secondary-glow);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Interactive Linear Regression Analyzer</h1>
+            <p>An AI-powered educational tool to explore the fundamentals of machine learning. Manipulate data in real-time and watch how AI models learn and adapt.</p>
+            <!-- IMPORTANT: Replace '#' with the actual URL of your deployed Streamlit app -->
+            <a href="https://25250924autodeploylr-kevintseng.streamlit.app/" class="cta-button" target="_blank">Launch Application</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Interactive Controls</h3>
+                        <p>Use intuitive sliders to instantly adjust model parameters like slope, noise, and data volume.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Real-time Visualization</h3>
+                        <p>See the data, the true relationship, and the model's prediction all on one interactive chart, updated on the fly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Live Model Training</h3>
+                        <p>Powered by Scikit-learn, the model retrains instantly with every change you make, providing immediate feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="section demo-section">
+            <div class="container">
+                <h2 class="section-title">Application Demo</h2>
+                <p style="margin-bottom: 2rem;">A glimpse of the application in action.</p>
+                <!-- IMPORTANT: Replace this with a real screenshot of your app -->
+                <img src="https://via.placeholder.com/800x450.png?text=App+Screenshot+Here" alt="Application Screenshot">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Project source code available on <a href="https://github.com/KevinTseng-0430/25250924_AutoDeploy_LR.git" target="_blank">GitHub</a>.</p>
+            <p style="margin-top: 0.5rem;">Website created with Gemini AI.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Minimalist particles.js script for background animation
+        const particlesJS = function(tag_id, params) {
+            const canvas_el = document.querySelector('#' + tag_id + ' > .particles-js-canvas-el');
+            this.pJS = {
+                canvas: { el: canvas_el, w: canvas_el.offsetWidth, h: canvas_el.offsetHeight },
+                particles: { number: { value: 80, density: { enable: true, value_area: 800 } }, color: { value: '#ffffff' }, shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 } }, opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } }, size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } }, line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 }, move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } } },
+                interactivity: { detect_on: 'canvas', events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true }, modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } } },
+                retina_detect: true
+            };
+            const pJS = this.pJS;
+            if (params) { Object.deepExtend(pJS, params); }
+            pJS.fn = {};
+            pJS.fn.particlesCreate = function() {
+                pJS.particles.array = [];
+                for (let i = 0; i < pJS.particles.number.value; i++) {
+                    pJS.particles.array.push(new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value));
+                }
+            };
+            pJS.fn.particle = function(color, opacity) {
+                this.x = Math.random() * pJS.canvas.w;
+                this.y = Math.random() * pJS.canvas.h;
+                this.vx = -pJS.particles.move.speed / 2 + Math.random() * pJS.particles.move.speed;
+                this.vy = -pJS.particles.move.speed / 2 + Math.random() * pJS.particles.move.speed;
+                this.radius = (pJS.particles.size.random ? Math.random() : 1) * pJS.particles.size.value;
+                if (this.radius < 0.1) this.radius = 0.1;
+                this.color = color;
+                this.opacity = opacity;
+            };
+            pJS.fn.canvasInit = function() {
+                pJS.canvas.ctx = pJS.canvas.el.getContext('2d');
+            };
+            pJS.fn.canvasSize = function() {
+                pJS.canvas.el.width = pJS.canvas.w;
+                pJS.canvas.el.height = pJS.canvas.h;
+                window.onresize = function() {
+                    if (pJS) {
+                        pJS.canvas.w = pJS.canvas.el.offsetWidth;
+                        pJS.canvas.h = pJS.canvas.el.offsetHeight;
+                        pJS.fn.canvasSize();
+                    }
+                };
+            };
+            pJS.fn.draw = function() {
+                pJS.canvas.ctx.clearRect(0, 0, pJS.canvas.w, pJS.canvas.h);
+                for (let i = 0; i < pJS.particles.array.length; i++) {
+                    const p = pJS.particles.array[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < -p.radius) p.x = pJS.canvas.w + p.radius;
+                    else if (p.x > pJS.canvas.w + p.radius) p.x = -p.radius;
+                    if (p.y < -p.radius) p.y = pJS.canvas.h + p.radius;
+                    else if (p.y > pJS.canvas.h + p.radius) p.y = -p.radius;
+                    pJS.canvas.ctx.beginPath();
+                    pJS.canvas.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
+                    pJS.canvas.ctx.fillStyle = 'rgba(0, 170, 255, ' + p.opacity + ')';
+                    pJS.canvas.ctx.fill();
+                }
+                for (let i = 0; i < pJS.particles.array.length; i++) {
+                    for (let j = i + 1; j < pJS.particles.array.length; j++) {
+                        const p1 = pJS.particles.array[i];
+                        const p2 = pJS.particles.array[j];
+                        const dist = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+                        if (dist <= pJS.particles.line_linked.distance) {
+                            pJS.canvas.ctx.beginPath();
+                            pJS.canvas.ctx.moveTo(p1.x, p1.y);
+                            pJS.canvas.ctx.lineTo(p2.x, p2.y);
+                            pJS.canvas.ctx.strokeStyle = 'rgba(0, 170, 255, ' + (1 - dist / pJS.particles.line_linked.distance) + ')';
+                            pJS.canvas.ctx.lineWidth = pJS.particles.line_linked.width;
+                            pJS.canvas.ctx.stroke();
+                        }
+                    }
+                }
+            };
+            pJS.fn.animate = function() {
+                pJS.fn.draw();
+                requestAnimationFrame(pJS.fn.animate);
+            };
+            pJS.fn.canvasInit();
+            pJS.fn.canvasSize();
+            pJS.fn.particlesCreate();
+            pJS.fn.animate();
+        };
+        Object.deepExtend = function(destination, source) {
+            for (const property in source) {
+                if (source[property] && source[property].constructor && source[property].constructor === Object) {
+                    destination[property] = destination[property] || {};
+                    Object.deepExtend(destination[property], source[property]);
+                } else {
+                    destination[property] = source[property];
+                }
+            }
+            return destination;
+        };
+        window.particlesJS = function(tag_id, params) {
+            if (typeof(tag_id) != 'string') {
+                params = tag_id;
+                tag_id = 'particles-js';
+            }
+            if (!tag_id) tag_id = 'particles-js';
+            const pJS_tag = document.getElementById(tag_id);
+            if (pJS_tag) {
+                const pJS_canvas_class = 'particles-js-canvas-el';
+                let canvas_el = pJS_tag.getElementsByClassName(pJS_canvas_class);
+                if (canvas_el.length) while (canvas_el.length > 0) pJS_tag.removeChild(canvas_el[0]);
+                canvas_el = document.createElement('canvas');
+                canvas_el.className = pJS_canvas_class;
+                canvas_el.style.width = "100%";
+                canvas_el.style.height = "100%";
+                pJS_tag.appendChild(canvas_el);
+                new particlesJS(tag_id, params);
+            }
+        };
+        window.particlesJS('particles-js');
+    </script>
+</body>
+</html>

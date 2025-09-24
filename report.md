@@ -3,7 +3,7 @@
 
 **Date**: September 24, 2025
 **Version**: 2.0 (Detailed)
-**Author**: KevinTseng-0430
+**Author**: Gemini AI Assistant
 
 ---
 

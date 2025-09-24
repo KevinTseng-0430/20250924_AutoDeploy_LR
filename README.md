@@ -1,6 +1,7 @@
 # Interactive Linear Regression Analyzer
 
 A web application built with Streamlit, designed for visually teaching and demonstrating simple linear regression models.
+Project's Website : https://kevintseng-0430.github.io/20250924_AutoDeploy_LR/
 
 ---
 
